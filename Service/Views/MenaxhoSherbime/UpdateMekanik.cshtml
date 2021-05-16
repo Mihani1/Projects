@@ -1,0 +1,67 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["login"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style type="text/css">
+        div.text {
+            margin: 0;
+            padding: 0;
+            padding-bottom: 1.25em;
+        }
+
+            div.text label {
+                margin: 0;
+                padding: 0;
+                display: block;
+                font-size: 100%;
+                padding-top: .1em;
+                padding-right: .25em;
+                width: 6em;
+                text-align: right;
+                float: left;
+            }
+
+            div.text input,
+            div.text textarea {
+                margin: 0;
+                padding: 0;
+                display: block;
+                font-size: 100%;
+            }
+
+        input:active,
+        input:focus,
+        input:hover,
+        textarea:active,
+        textarea:focus,
+        textarea:hover {
+            background-color: lightyellow;
+            border-color: yellow;
+        }
+    </style>
+
+    <title>UpdateMekanik</title>
+</head>
+<body>
+    <div class="text">
+        @using (Html.BeginForm("UpdateMekanikPOST", "MenaxhoSherbime", FormMethod.Post))
+        {
+            <label> NrId</label>
+            <input type="number"name="rtxt13" /><br />
+            <label> Ne Pune</label>
+            <input type="text"  name="rtxt14" /><br />
+            <input type="submit"   value="Perditeso" /><br />
+        }
+    </div>
+</body>
+</html>

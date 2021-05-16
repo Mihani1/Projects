@@ -1,0 +1,13 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "PerfundoSherbimPost";
+    if (Session["login"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+
+<h2>PerfundoSherbimPost</h2>
+
+@ViewBag.Message

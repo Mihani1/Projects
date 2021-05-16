@@ -1,0 +1,83 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["login"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style type="text/css">
+     
+div.text { 
+  margin: 0; 
+  padding: 0; 
+  padding-bottom: 1.25em; 
+} 
+
+div.text label { 
+  margin: 0; 
+  padding: 0; 
+  display: block; 
+  font-size: 100%; 
+  padding-top: .1em; 
+  padding-right: .25em; 
+  width: 6em; 
+  text-align: right; 
+  float: left; 
+} 
+
+div.text input, 
+div.text textarea { 
+  margin: 0; 
+  padding: 0; 
+  display: block; 
+  font-size: 100%; 
+} 
+
+input:active, 
+input:focus, 
+input:hover, 
+textarea:active, 
+textarea:focus, 
+textarea:hover { 
+  background-color: lightyellow; 
+  border-color: yellow; 
+} 
+        
+    </style>
+    <title>RegjistroMakine</title>
+</head>
+<body>
+@using (Html.BeginForm("RegjistroMakinePOST", "Home", FormMethod.Post)) { 
+    <div class="text">
+        <label> Targa</label>
+        <input type="text" name="rtxt5" /> <br />
+        <label> Marka</label>
+        <select name="rs1">
+            <option value=" "> Zgjidh Marken</option>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+        </select><br /> <br />
+        <label> Tipi</label>
+        <select name="rs2">
+            <option value=" "> Zgjidh Tipin</option>
+            <option value="focus">Focus</option>
+            <option value="fiesta">Fiesta</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+        </select><br /><br />
+        <label> Ngjyra</label>
+        <input type="text" name="rtxt6" /> <br /><br />
+        <input type="submit" onclick="  " value=" Ruaj"  name="rbtn"/>
+    </div>
+}
+</body>
+</html>

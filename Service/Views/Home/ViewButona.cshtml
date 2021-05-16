@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "ViewButona";
+    if (Session["login"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+
+<h2>Menaxhim Pjeseve</h2>
+
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <table class="table">
+            <tr>
+                <td>
+                    <a class="btn btn-default" href="~/Home/shtopjese">Shto pjese</a>
+                </td>
+                <td>
+                    <a class="btn btn-default" href="~/Home/sasipjesesh">Sasi pjesesh</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a class="btn btn-default" href="~/Home/ShfaqPjes">Shfaq pjese</a>
+                </td>
+               
+            </tr>
+        </table>
+    </div>
+</div>

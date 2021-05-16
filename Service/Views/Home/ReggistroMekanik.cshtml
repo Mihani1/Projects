@@ -1,0 +1,75 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   
+    if (Session["login"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style type="text/css">
+        div.text {
+            margin: 0;
+            padding: 0;
+            padding-bottom: 1.25em;
+        }
+
+            div.text label {
+                margin: 0;
+                padding: 0;
+                display: block;
+                font-size: 100%;
+                padding-top: .1em;
+                padding-right: .25em;
+                width: 6em;
+                text-align: right;
+                float: left;
+            }
+
+            div.text input,
+            div.text textarea {
+                margin: 0;
+                padding: 0;
+                display: block;
+                font-size: 100%;
+            }
+
+        input:active,
+        input:focus,
+        input:hover,
+        textarea:active,
+        textarea:focus,
+        textarea:hover {
+            background-color: lightyellow;
+            border-color: yellow;
+        }
+    </style>
+    <title>ReggistroMekanik</title>
+</head>
+<body>
+    @using (Html.BeginForm("RegjistroMekanikPOST", "Home",FormMethod.Post)) {
+    <div class="text">
+        <label> NR.Id</label>
+        <input type="number" name="rtxt6" /> <br />
+        <label> Emri</label>
+        <input type="text" name="rtxt7" /> <br />
+        <label> Mbiemri</label>
+        <input type="text" name="rtxt8" /><br />
+        <label> Mosha</label>
+        <input type="Number" name="rtxt9" /> <br />
+        <label>Specializimi</label>
+        <textarea rows="7" cols="20" name="rtxt11"></textarea> <br />
+        <label> Ne pune</label>
+        <input type="text" name="rtxt10" /> <br />
+        
+        <input type="submit" value=" Ruaj" name="rbtn12" />
+    </div>
+    }
+</body>
+</html>

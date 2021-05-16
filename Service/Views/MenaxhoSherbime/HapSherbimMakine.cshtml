@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["login"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HapSherbimMakine</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm("HapSherbimMakinePost", "MenaxhoSherbime", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td>Sherbimi:</td>
+                    <td>@Html.DropDownList("Liste", "Zgjidh nje:")</td>
+                </tr>
+                <tr>
+                    <td>Targe :</td>
+                    <td><input id="Text1" name="txtTarge" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>Data:</td>
+                    <td>
+                        <input id="Text1" name="txtDate" type="date" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="Submit1" type="submit" value="submit" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @ViewBag.Message
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+</body>
+</html>

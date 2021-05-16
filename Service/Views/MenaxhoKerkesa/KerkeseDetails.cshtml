@@ -1,0 +1,91 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["login"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>KerkeseDetails</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Kerkesa:
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                     @if (ViewBag.List != null)
+                     {
+                         foreach (var item in ViewBag.List)
+                         {
+                            <tr>
+                                <td>Targa:</td>
+                                <td>@item.targa</td>
+
+                            </tr>
+                            <tr>
+                                <td>Tipi:</td>
+                                <td>@item.tipi</td>
+
+                            </tr>
+                            <tr>
+                                <td>Pershkrim:</td>
+                                <td>@item.pershkrim</td>
+
+                            </tr>
+                            <tr>
+                                <td>Vendodhja:</td>
+                                <td>@item.vendodhja</td>
+
+                            </tr>
+                            <tr>
+                                <td>Statusi:</td>
+                                <td>@item.statusiKerkeses</td>
+
+                            </tr>
+                         }
+                     }
+                     else
+                     {
+                         Response.Redirect("~/MenaxhoKerkesa/KerkeseDetails/"+ViewBag.Id);
+                     }
+                        
+                    </table>
+                </div>
+                <div class="panel-footer">
+                    @using (Html.BeginForm("UpdateStatusKerkese", "MenaxhoKerkesa", FormMethod.Post))
+                    {
+                        <input id="Submit1" type="submit" value="U hap sherbimi" />
+                    }
+                    @using (Html.BeginForm("HapSherbimMakine", "MenaxhoSherbime", FormMethod.Post))
+                    {
+                        <input id="Submit1" type="submit" value="Shko te sherbimi" />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

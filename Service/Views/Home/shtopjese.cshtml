@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["login"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style type="text/css">
+        div.text {
+            margin: 0;
+            padding: 0;
+            padding-bottom: 1.25em;
+        }
+
+            div.text label {
+                margin: 0;
+                padding: 0;
+                display: block;
+                font-size: 100%;
+                padding-top: .1em;
+                padding-right: .25em;
+                width: 6em;
+                text-align: right;
+                float: left;
+            }
+
+            div.text input,
+            div.text textarea {
+                margin: 0;
+                padding: 0;
+                display: block;
+                font-size: 100%;
+            }
+
+        input:active,
+        input:focus,
+        input:hover,
+        textarea:active,
+        textarea:focus,
+        textarea:hover {
+            background-color: lightyellow;
+            border-color: yellow;
+        }
+    </style>
+    <title>shto pjese te re</title>
+</head>
+<body>
+    @using (Html.BeginForm("shtopjesPOST", "Home", FormMethod.Post))
+    {
+        <div class="text">
+            <label> Emri i Pjeses</label>
+            <input type="text" name="rtxt1" /><br />
+            <label>Sasia</label>
+            <input type="number" name="rtxt3" /><br />
+            <label>Cmimi</label>
+            <input type="number" name="rtxt4" /><br />
+            <label>Pershkrim</label>
+            <textarea  name="rtxt5" rows="7" cols="30"></textarea>
+            <br />
+            <input  name=" rbuton" type="submit" id="btn1" value="shto" />
+            <label>@ViewBag.Message</label>
+        </div>
+    }
+    
+</body>
+</html>

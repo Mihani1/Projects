@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["login"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UpdateStatusRedirected</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm("UpdateStatusPost", "MenaxhoSherbime", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td>Status:</td>
+                    <td>
+                        <select name="rs8">
+                            <option value=" "> Zgjidh status:</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select><br /> <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="Submit1" type="submit" value="Update Status" />
+                    </td>
+                </tr>
+            </table>
+        }
+        
+    </div>
+</body>
+</html>

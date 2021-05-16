@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "MenaxhoSherbim";
+    if (Session["login"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+
+<h2>MenaxhoSherbim</h2>
+
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <table class="table">
+            <tr>
+                <td>
+                    <a class="btn btn-default" href="~/MenaxhoSherbime/HapSherbimMakine">Hap Sherbim Makine</a>
+                </td>
+                <td>
+                    <a class="btn btn-default" href="~/MenaxhoSherbime/Sherbimi">Rregjistro sherbim</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a class="btn btn-default" href="~/MenaxhoSherbime/SelectTarge">Modifiko Status</a>
+                </td>
+                <td>
+                    <a class="btn btn-default" href="~/MenaxhoKerkesa/ListoKerkesa">Menaxho Kerkesa</a>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+</div>

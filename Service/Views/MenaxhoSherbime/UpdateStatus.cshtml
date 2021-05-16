@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["login"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UpdateStatus</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm("UpdateStatusRedirect","MenaxhoSherbime",FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td>Id Sherbimi:</td>
+                    <td>Emer:</td>
+                    <td>Targe:</td>
+                    <td>Status:</td>
+                </tr>
+                @foreach(var item in ViewBag.Liste)
+                {
+                    <tr>
+                        <td>@item.idSherbimi</td>
+                        <td>@item.emer</td>
+                        <td>@item.targa</td>
+                        <td>@item.status</td>
+                        
+                        <td>
+                            @Html.ActionLink(
+ linkText: "Update",
+ actionName: "UpdateStatusRedirected",
+ controllerName: "MenaxhoSherbime",
+    routeValues: new {
+        id = @item.idSherbimi
+    },
+    htmlAttributes: null
+)
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        
+    </div>
+</body>
+</html>
