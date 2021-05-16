@@ -1,0 +1,61 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Login
+                </div>
+                <div class="panel-body">
+                    @using (Html.BeginForm("LoginPost", "Login", FormMethod.Post))
+                    {
+                        <table class="table">
+                            <tr>
+                                <td>Username:</td>
+                                <td><input id="Text1" name="txtUN" type="text" /></td>
+
+                            </tr>
+                            <tr>
+                                <td>Password:</td>
+                                <td><input id="Text1" name="txtPWD" type="password" /></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input id="Submit1" type="submit" value="Login" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>@ViewBag.Message</td>
+                            </tr>
+                        </table>
+                    }
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

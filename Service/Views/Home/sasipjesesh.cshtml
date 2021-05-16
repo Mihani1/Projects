@@ -1,0 +1,71 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["login"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style type="text/css">
+        div.text {
+            margin: 0;
+            padding: 0;
+            padding-bottom: 1.25em;
+        }
+
+            div.text label {
+                margin: 0;
+                padding: 0;
+                display: block;
+                font-size: 100%;
+                padding-top: .1em;
+                padding-right: .25em;
+                width: 6em;
+                text-align: right;
+                float: left;
+            }
+
+            div.text input,
+            div.text textarea {
+                margin: 0;
+                padding: 0;
+                display: block;
+                font-size: 100%;
+            }
+
+        input:active,
+        input:focus,
+        input:hover,
+        textarea:active,
+        textarea:focus,
+        textarea:hover {
+            background-color: lightyellow;
+            border-color: yellow;
+        }
+    </style>
+    <title>sasipjesesh</title>
+</head>
+<body>
+    @using (Html.BeginForm("updatePjese", "Home", FormMethod.Post))
+    {
+        <div class="text">
+            <label> Emri i Pjeses</label>
+            <input type="text" name="rtxt1" /><br />
+            <label> Sasia Plus</label>
+            <input type="number" name="rtxt2" /><br />
+            <br />
+            <input type="submit" onclick=" " id="btn2" value="Ruaj" />
+        </div>
+        <div>
+            <label>@ViewBag.Message</label>
+        </div>
+    }
+    
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["login"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>ListoKerkesa</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Liste kerkesash:
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        @if (ViewBag.Liste != null)
+                        {
+                            foreach (var item in ViewBag.Liste)
+                            {
+                                <tr>
+                                    <td> Kerkesa  @item.idKerkeseSherbimi</td>
+                                    <td>
+                                        @Html.ActionLink(
+ linkText: "Shiko",
+actionName: "KerkeseDetails",
+ controllerName: "MenaxhoKerkesa",
+    routeValues: new
+    {
+        id = @item.idKerkeseSherbimi
+    },
+    htmlAttributes: null
+)
+                                </td>
+                            </tr>
+                            }
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
